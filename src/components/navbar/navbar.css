@@ -1,20 +1,17 @@
 nav {
   display: flex;
   padding: 1%;
-  background: radial-gradient(
-    circle at 30% 107%,
-    #fdf497 0%,
-    #fdf497 5%,
-    #fd5949 45%,
-    #d6249f 60%,
-    #285aeb 90%
-  );
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+  background-color: #fff3b0;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.25);
 }
 
 nav h1 {
   font-size: 2em;
-  color: black;
+  color: #540b0e;
   margin-left: 2em;
-  letter-spacing: 10px;
+  transition: letter-spacing 0.5s, width 0.5s;
+}
+
+nav h1:hover {
+  letter-spacing: 0.3em;
 }
