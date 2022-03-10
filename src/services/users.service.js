@@ -5,36 +5,29 @@ const headers = {
   'Content-Type': 'application/json',
 };
 
+// TODO: refactor
+
 const register = async (user) => {
   const body = JSON.stringify(user);
-  const response = await fetch(urlReg, {
+  const request = {
     method: 'POST',
     headers,
     body,
-  });
+  };
 
-  const result = await response.json();
-  console.table('resultado', result);
-  if (response.status === 500) {
-    throw new Error('Error', result.message);
-  }
-  return result;
+  const response = await fetch(urlReg, request);
+  return await response.json();
 };
 
 const login = async (user) => {
   const body = JSON.stringify(user);
-  console.log(body);
-  const response = await fetch(urlLog, {
+  const request = {
     method: 'POST',
     headers,
     body,
-  });
-  console.log(body);
-  const result = await response.json();
-  if (response.status === 500) {
-    throw new Error('Error', result.message);
-  }
-  return result;
+  };
+  const response = await fetch(urlLog, request);
+  return await response.json();
 };
 
 export { register, login };

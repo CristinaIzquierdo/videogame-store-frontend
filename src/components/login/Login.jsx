@@ -2,7 +2,6 @@ import { useState } from 'react';
 
 //services
 import { login } from '../../services/users.service';
-//components
 
 import './login.css';
 
@@ -13,22 +12,28 @@ export default function Login(){
         password: ''
     })
 
-    const loadUser = async (e) => {
-      e.preventDefault();
+    const handleChange = (event)=>{
+        setUser((prevProps)=>({
+            ...prevProps,
+            [event.target.name] : event.target.value,
+        }))
+    }
+
+    const handleSubmit = async (e) => {
         try{
             const response = await login(user);
-            setUser(response);
+            console.log(response);
         }  catch(err){
-           console.table(err)
+            console.log(err.message);
         }
     };
 
     return(
        <section>
             <h1 >Login</h1>  
-            <input placeholder='Email' name={user.email}/> Enter your email
-            <input placeholder='Password' name={user.password}/> Enter your password
-            <button onClick={loadUser}> Iniciar sesión </button>
+            <input placeholder='Email' name='email' value={user.email} onChange={handleChange} /> Enter your email
+            <input placeholder='Password' name='password' value={user.password} onChange={handleChange}/> Enter your password
+            <button onClick={handleSubmit}> Iniciar sesión </button>
         </section>
     )
 }
