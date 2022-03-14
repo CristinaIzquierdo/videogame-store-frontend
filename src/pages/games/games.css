@@ -1,0 +1,95 @@
+@import url(../../index.css);
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 400px);
+  gap: 2rem;
+  margin: 4rem 5vw;
+}
+
+.card {
+  position: relative;
+  border-radius: calc(var(--curve) * 1px);
+  overflow: hidden;
+}
+
+.card_img {
+  width: 100%;
+}
+
+.card_price {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.6rem;
+  background-color: var(--primary-bg-btn);
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  font-weight: bold;
+  box-shadow: var(--box-shadow);
+}
+
+.card_content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: calc(var(--curve) * 1px);
+  background-color: var(--primary-bg);
+  transform: translateY(100%);
+  transition: 0.2s ease-in-out;
+  color: var(--primary-color);
+}
+.card:hover .card_content {
+  transform: translateY(0);
+}
+.card_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2em;
+  border-radius: calc(var(--curve) * 1px) 0 0 0;
+  background-color: var(--primary-bg);
+  transform: translateY(-100%);
+  transition: 0.2s ease-in-out;
+}
+.card:hover .card_header {
+  transform: translateY(0);
+}
+.card_footer {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+.card_arc {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+}
+.card_arc path {
+  fill: var(--primary-bg);
+  d: path('M 40 80 c 22 0 40 -22 40 -40 v 40 Z');
+}
+.card_descr {
+  padding: 1.5em;
+  font-size: 1rem;
+}
+.card_btn {
+  padding: 5px 20px;
+  border-radius: 12px;
+  font-size: 1rem;
+  color: var(--primary-color);
+  background: var(--primary-bg-btn);
+  cursor: pointer;
+  border: none;
+  transform: translateY(-6px);
+}
+.link_nt {
+  background-color: red;
+  border-radius: 12px;
+}
+.link_nt:active .card_btn {
+  transform: translateY(-2px);
+}

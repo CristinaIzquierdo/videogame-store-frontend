@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 //services
 import { login } from '../../services/users.service';
+import { createCart } from '../../services/cart.service';
 
 import './login.css';
 
@@ -21,7 +22,10 @@ export default function Login() {
   const handleSubmit = async (e) => {
     try {
       const response = await login(user);
-      console.log(response);
+      localStorage.setItem('token', response.token);
+      const carrito = await createCart();
+
+      console.log('carrito', carrito);
     } catch (err) {
       console.log(err.message);
     }
@@ -31,21 +35,21 @@ export default function Login() {
     <section className="table">
       <div className="table-cell">
         <h1> Login </h1>
+        <label htmlFor="email">Email</label>
         <input
-          placeholder="Email"
           name="email"
           value={user.email}
           onChange={handleChange}
           type="text"
         />
+        <label htmlFor="password">Password</label>
         <input
-          placeholder="Password"
           name="password"
           value={user.password}
           onChange={handleChange}
           type="password"
         />
-        <button onClick={handleSubmit}> Iniciar sesión </button>
+        <button onClick={handleSubmit}> Sign up </button>
       </div>
     </section>
   );

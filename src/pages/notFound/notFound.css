@@ -1,0 +1,43 @@
+@import url(../../index.css);
+
+.section_nf {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.title_nf,
+.p_nf,
+.img_nf,
+.link_nt {
+  margin-top: 2%;
+}
+.title_nf {
+  font-size: 5em;
+  font-weight: 500;
+}
+.p_nf {
+  font-size: 2em;
+}
+.img_nf {
+  width: 30%;
+  border-radius: 10%;
+  box-shadow: var(--box-shadow);
+  content: url('https://media2.giphy.com/media/y0NFayaBeiWEU/giphy.gif?cid=ecf05e47nnvoawe5jaldustxrsu3ljfae3rmsiuxw8cos7ze&rid=giphy.gif&ct=g');
+}
+.btn_nt {
+  padding: 12px 42px;
+  border-radius: 12px;
+  font-size: 1.25rem;
+  background: var(--primary-bg-btn);
+  color: white;
+  cursor: pointer;
+  border: none;
+  transform: translateY(-6px);
+}
+.link_nt {
+  background: var(--secondary-bg-btn);
+  border-radius: 12px;
+}
+.link_nt:active .btn_nt {
+  transform: translateY(-2px);
+}

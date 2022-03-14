@@ -1,17 +1,31 @@
-nav {
+@import url(../../index.css);
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.navbar {
   display: flex;
+  justify-content: space-evenly;
   padding: 1%;
-  background-color: #fff3b0;
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.25);
+  background: var(--primary-bg);
+  box-shadow: var(--box-shadow);
 }
 
-nav h1 {
-  font-size: 2em;
-  color: #540b0e;
-  margin-left: 2em;
-  transition: letter-spacing 0.5s, width 0.5s;
+.navbar a {
+  color: var(--primary-color);
+  width: 2.5%;
+  text-decoration: none;
+  font-size: 1.2em;
+  font-weight: 500;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
-nav h1:hover {
-  letter-spacing: 0.3em;
+.navbar a:hover {
+  color: var(--hover-bg);
+  letter-spacing: 4px;
 }

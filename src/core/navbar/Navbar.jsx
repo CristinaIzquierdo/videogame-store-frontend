@@ -4,14 +4,9 @@ import './navbar.css';
 export default function Navbar() {
   return (
     <nav className="navbar">
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/games">Games</Link>
-        </li>
-      </ul>
+      <Link to="/">HOME</Link>
+      <Link to="/games">GAMES</Link>
+      <Link to="/auth">AUTH</Link>
     </nav>
   );
 }
