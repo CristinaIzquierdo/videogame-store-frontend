@@ -29,22 +29,22 @@ export default function Register() {
     <section className="table">
       <div className="table-cell">
         <h1>Register</h1>
+        <label htmlFor="name">Name</label>
         <input
-          placeholder="Name"
           value={user.name}
           type="text"
           onChange={handleChange}
           name="name"
         />
+        <label htmlFor="email">Email</label>
         <input
-          placeholder="Email"
           type="text"
           value={user.email}
           onChange={handleChange}
           name="email"
         />
+        <label htmlFor="password">Password</label>
         <input
-          placeholder="Password"
           value={user.password}
           type="password"
           onChange={handleChange}

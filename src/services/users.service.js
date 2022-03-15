@@ -5,8 +5,6 @@ const headers = {
   'Content-Type': 'application/json',
 };
 
-// TODO: refactor
-
 const register = async (user) => {
   const body = JSON.stringify(user);
   const request = {
@@ -27,7 +25,11 @@ const login = async (user) => {
     body,
   };
   const response = await fetch(urlLog, request);
-  return await response.json();
+  if (response.status === 404) {
+    throw new Error('Error', response.message);
+  } else {
+    return await response.json();
+  }
 };
 
 export { register, login };

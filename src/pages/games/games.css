@@ -9,7 +9,7 @@
 
 .card {
   position: relative;
-  border-radius: calc(var(--curve) * 1px);
+  border-radius: 0px 0px calc(var(--curve) * 1px) calc(var(--curve) * 1px);
   overflow: hidden;
 }
 

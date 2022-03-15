@@ -1,4 +1,5 @@
 const url = 'http://localhost:8080/api/cart';
+const urlAdd = 'http://localhost:8080/api/cart/add';
 
 const headers = {
   'Content-Type': 'application/json',
@@ -6,35 +7,48 @@ const headers = {
 };
 
 const getCart = async () => {
-  const response = await fetch(url, {
+  const request = {
+    method: 'GET',
     headers,
-  });
-  const result = await response.json();
-  if (response.status === 500) {
-    throw new Error('Error', result.message);
+  };
+  const response = await fetch(url, request);
+  if (response.status !== 200) {
+    throw new Error('Error', response);
   } else {
+    const result = await response.json();
     console.log(result);
     return result;
   }
 };
 
 const createCart = async () => {
-  getCart();
-  console.log('carro', getCart.result);
-  if (getCart.result === `doesn't have a cart`) {
-    const response = await fetch(url, {
-      method: 'POST',
-      headers,
-    });
-    const result = await response.json();
-    if (response.status === 500) {
-      throw new Error('Error', result.message);
-    } else {
-      return result;
-    }
+  const request = {
+    method: 'POST',
+    headers,
+  };
+  const response = await fetch(url, request);
+  if (response.status !== 200) {
+    throw new Error('Error', response);
   } else {
-    return createCart.result;
+    const result = await response.json();
+    return result;
   }
 };
 
-export { createCart };
+const addGame = async (gameId) => {
+  const body = JSON.stringify(gameId);
+  const request = {
+    method: 'POST',
+    headers,
+    body,
+  };
+  const response = await fetch(urlAdd, request);
+  if (response.status !== 200) {
+    throw new Error('Error ' + response.status);
+  } else {
+    const result = await response.json();
+    return result;
+  }
+};
+
+export { getCart, createCart, addGame };

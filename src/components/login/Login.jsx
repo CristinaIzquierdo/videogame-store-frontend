@@ -2,7 +2,6 @@ import { useState } from 'react';
 
 //services
 import { login } from '../../services/users.service';
-import { createCart } from '../../services/cart.service';
 
 import './login.css';
 
@@ -23,11 +22,10 @@ export default function Login() {
     try {
       const response = await login(user);
       localStorage.setItem('token', response.token);
-      const carrito = await createCart();
-
-      console.log('carrito', carrito);
+      window.location.href = '/';
     } catch (err) {
-      console.log(err.message);
+      alert('Usuario o contraseña incorrectos');
+      console.error(err);
     }
   };
 

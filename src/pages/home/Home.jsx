@@ -8,7 +8,11 @@ export default function Home() {
       <Navbar />
       <section className="home_section">
         <div className="home_section_content">
-          <img alt="" className="bg_img" src={require('./img_landpage.png')} />
+          <img
+            alt=""
+            className="bg_img"
+            src={require('../../static/img/img_landpage.png')}
+          />
         </div>
         <h1 className="grid1">Welcome to GameStuff</h1>
         <h2 className="grid2">Nice to see you here</h2>
