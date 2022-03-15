@@ -16,7 +16,6 @@ const getCart = async () => {
     throw new Error('Error', response);
   } else {
     const result = await response.json();
-    console.log(result);
     return result;
   }
 };

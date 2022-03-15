@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import Navbar from '../../core/navbar/Navbar';
-import { Link } from 'react-router-dom';
 
 //services
 import { getGames } from '../../services/games.service';
@@ -13,12 +12,11 @@ import './games.css';
 export default function Games() {
   const [games, setGames] = useState([]);
   const [purchased, setPurchased] = useState([]);
+  const [visibility, setVisibility] = useState(true);
 
   useEffect(() => {
     loadGames();
     btnDisabled();
-    console.log('games', games);
-    console.log('purchased', purchased);
   }, []);
 
   const loadGames = async () => {
@@ -31,25 +29,42 @@ export default function Games() {
   };
 
   const buyGame = async (id) => {
-    try {
-      const response = await getCart();
-      if (response.data === `doesn't have a cart`) {
-        try {
-          await createCart();
-        } catch (err) {
-          console.log(err.message);
+    const token = localStorage.getItem('token');
+    if (!token) {
+      alert('Please login first');
+      window.location.href = '/auth';
+      return;
+    } else
+      try {
+        const response = await getCart();
+        if (response.data === `doesn't have a cart`) {
+          try {
+            await createCart();
+          } catch (err) {
+            console.log(err.message);
+          }
         }
+        await addGame({ game: id });
+      } catch (err) {
+        console.log(err.message);
       }
-      await addGame({ game: id });
-      setPurchased([...purchased, { title: game.title }]);
-    } catch (err) {
-      console.log(err.message);
-    }
   };
 
   const btnDisabled = async () => {
     const response = await getCart();
-    if (response.data.games) setPurchased(response.data.games);
+    if (response.data.games) {
+      setPurchased(response.data.games);
+    }
+  };
+
+  const setBtnVisibility = (id) => {
+    if (visibility === false) {
+      setVisibility(false);
+      document.getElementById(id).style.visibility = 'visible';
+    } else {
+      setVisibility(true);
+      document.getElementById(id).style.visibility = 'hidden';
+    }
   };
 
   return (
@@ -75,8 +90,12 @@ export default function Games() {
                           (purchased) => purchased.title === game.title
                         ) === -1)) ? (
                       <button
+                        id={game.id}
                         className="card_btn"
-                        onClick={() => buyGame(game.id)}
+                        onClick={() => [
+                          buyGame(game.id),
+                          setBtnVisibility(game.id),
+                        ]}
                       >
                         BUY
                       </button>

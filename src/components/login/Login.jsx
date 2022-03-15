@@ -30,25 +30,28 @@ export default function Login() {
   };
 
   return (
-    <section className="table">
-      <div className="table-cell">
+    <div className="table-cell">
+      <div className="data_form">
         <h1> Login </h1>
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">Email*</label>
         <input
           name="email"
           value={user.email}
           onChange={handleChange}
           type="text"
         />
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password">Password*</label>
         <input
           name="password"
           value={user.password}
           onChange={handleChange}
           type="password"
         />
-        <button onClick={handleSubmit}> Sign up </button>
+        <button className="card_btn_form" onClick={handleSubmit}>
+          Sign in
+        </button>
+        <p>* Required</p>
       </div>
-    </section>
+    </div>
   );
 }

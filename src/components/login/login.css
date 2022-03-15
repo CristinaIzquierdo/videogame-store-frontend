@@ -1,1 +1,36 @@
+@import url('../../index.css');
 
+.table-cell {
+  padding: 30px;
+  font-size: 1.2rem;
+}
+
+.data_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+}
+
+.card_btn_form {
+  padding: 5px 20px;
+  border-radius: 12px;
+  font-size: 1rem;
+  color: var(--primary-color);
+  background: var(--primary-bg-btn);
+  cursor: pointer;
+  border: none;
+  margin: 10%;
+}
+
+.data_form > input {
+  padding: 10px;
+  border-radius: 12px;
+  font-size: 1rem;
+  color: var(--primary-color);
+  background: var(--primary-bg);
+  border: none;
+  margin-bottom: 10%;
+  margin-top: 2%;
+  width: 150%;
+}

@@ -19,39 +19,41 @@ export default function Register() {
   const handleSubmit = async (e) => {
     try {
       const response = await register(user);
-      console.log(response);
     } catch (err) {
       console.log(err.message);
     }
   };
 
   return (
-    <section className="table">
-      <div className="table-cell">
+    <div className="table-cell">
+      <div className="data_form">
         <h1>Register</h1>
-        <label htmlFor="name">Name</label>
+        <label htmlFor="name">Name*</label>
         <input
           value={user.name}
           type="text"
           onChange={handleChange}
           name="name"
         />
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">Email*</label>
         <input
           type="text"
           value={user.email}
           onChange={handleChange}
           name="email"
         />
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password">Password*</label>
         <input
           value={user.password}
           type="password"
           onChange={handleChange}
           name="password"
         />
-        <button onClick={handleSubmit}> Register</button>
+        <button className="card_btn_form" onClick={handleSubmit}>
+          Sign up
+        </button>
+        <p>* Required</p>
       </div>
-    </section>
+    </div>
   );
 }
