@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import Navbar from '../../core/navbar/Navbar';
 
-//services
-import { getGames } from '../../services/games.service';
+//components
+import Navbar from '../../core/navbar/Navbar';
 
 //service
 import { getCart, createCart, addGame } from '../../services/cart.service';
+import { getGames } from '../../services/games.service';
 
 import './games.css';
 

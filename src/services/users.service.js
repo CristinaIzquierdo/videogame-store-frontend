@@ -4,6 +4,10 @@ const urlLog = 'http://localhost:8080/api/users';
 const headers = {
   'Content-Type': 'application/json',
 };
+const headerToken = {
+  'Content-Type': 'application/json',
+  Authorization: 'Bearer ' + localStorage.getItem('token'),
+};
 
 const register = async (user) => {
   const body = JSON.stringify(user);
@@ -32,4 +36,12 @@ const login = async (user) => {
   }
 };
 
-export { register, login };
+const getInfo = async () => {
+  const request = {
+    method: 'GET',
+    headers: headerToken,
+  };
+  const response = await fetch(urlLog, request);
+  return await response.json();
+};
+export { register, login, getInfo };
