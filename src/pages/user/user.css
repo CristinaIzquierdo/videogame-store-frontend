@@ -1,0 +1,35 @@
+@import url(../../index.css);
+
+.container_user {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.user_info,
+.user_cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 35%;
+}
+
+.user_icon {
+  width: 20%;
+  border-radius: 50%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgb(0, 0, 0);
+}
+.title_container {
+  font-size: 2em;
+  text-align: center;
+}
+.container_user {
+  font-size: 1.2rem;
+}
+
+.user_icon:hover {
+  filter: grayscale(100%);
+}

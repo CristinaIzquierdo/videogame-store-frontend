@@ -19,6 +19,10 @@ export default function Register() {
   const handleSubmit = async (e) => {
     try {
       const response = await register(user);
+      console.log(response);
+      if (response.email) {
+        alert('User created successfully!');
+      }
     } catch (err) {
       console.log(err.message);
     }
